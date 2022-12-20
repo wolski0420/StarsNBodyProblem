@@ -16,3 +16,8 @@ mpiexec -n 2 python3 stars1.py 4
 When:
 ```-n``` flag is a number of processes,
 ```4``` after filename is a number of stars.
+
+### @TODO
+
+1. Test comparing results with a sequential version results (basing on small data).
+2. Compute the acceleration and the efficiency of the algorithm for big data (many stars per each processor).
