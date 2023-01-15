@@ -8,6 +8,9 @@ from sys import argv
 G = 6.6743015e-11
 comm = MPI.COMM_WORLD
 
+if "compare" in argv:
+    np.random.seed(100 + comm.Get_rank())
+
 
 def generate_stars(size: int):
     # it generates: M, x, y, z for each star
@@ -79,3 +82,5 @@ gathered = comm.gather(accumulator, root=0)
 if rank == 0:
     gathered = np.concatenate(gathered, axis=0)
     print(gathered)
+    if "save" in argv:
+        np.savetxt("results-parallel.txt", gathered)
