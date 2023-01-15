@@ -43,6 +43,7 @@ for i in range(all_stars.shape[0]):
 
             accumulator[i] += G * M * r_differ / r_3 if r_3 != 0 else np.asarray([0, 0, 0])
 
-print(accumulator)
+if "print" in argv:
+    print(accumulator)
 if "save" in argv:
     np.savetxt("results-iterative.txt", accumulator)

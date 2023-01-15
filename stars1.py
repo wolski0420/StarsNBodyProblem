@@ -81,6 +81,7 @@ for _ in range(p-1):
 gathered = comm.gather(accumulator, root=0)
 if rank == 0:
     gathered = np.concatenate(gathered, axis=0)
-    print(gathered)
+    if "print" in argv:
+        print(gathered)
     if "save" in argv:
         np.savetxt("results-parallel.txt", gathered)
